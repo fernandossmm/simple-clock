@@ -4,9 +4,9 @@
   <br>
 </h1>
 
-### A simple clock
-
 <div align="center">
+	<img height="540" alt="Clock screenshot" src="https://github.com/user-attachments/assets/f342e41b-1361-428c-a322-4ed013ee6234" />
+	<h3>A simple clock</h3>
 	<p>Developed to display a non-intrusive clock on the blackboard during student's exams</p>
 </div>
 
