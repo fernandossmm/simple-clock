@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+<head>
+  <!-- Made by fernandossmme -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head> 
+<body id="wrapper"
+style=" background-color: black;
+        font-family: sans-serif;
+        text-align: center;
+        font-size: 150px;
+        margin:0;
+        
+        display: flex;
+        height:100%;
+        justify-content: center;
+        align-items: center;
+        
+        .full-screen:not(.is-active) .full-screen--close {
+          display: none;
+        }
+        
+        .full-screen.is-active .full-screen--open {
+          display: none;
+        }
+      "
+>
+  <h1 style="color: silver; margin: 0;" id="clock">
+    
+  </h1>
+  
+  
+  <button style="
+      position: absolute;
+      top:95%;
+      right: 8px;
+      height: 4%;
+      width: 180px;
+      border: 0;
+      background-color: transparent;
+      color: silver;
+      
+      font-size: 16px;
+  "
+  class="full-screen" title="Enter full screen mode">
+    Pantalla completa
+  </button>
+  
+  <p  style="
+  position: absolute;
+  top:95%;
+  left:8px;
+  height: 4%;
+  width: 200px;
+  display: table-cell;
+  line-height:35px;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  color: black !important;
+  text-align: left;
+  
+  font-size: 16px;
+">
+    Hecho por Fernando SSMM
+  </p>
+  
+  
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var date = new Date();
+      var hours = date.getHours().toString().padStart(2, '0');
+      var minutes = date.getMinutes().toString().padStart(2, '0')
+      $("#clock").text(hours+":"+minutes);
+    });
+    
+    setInterval(function() {
+      $(document).ready(function(){
+        var date = new Date();
+        var hours = date.getHours().toString().padStart(2, '0');
+        var minutes = date.getMinutes().toString().padStart(2, '0')
+        $("#clock").text(hours+":"+minutes);
+      });
+    }, 5000)
+    
+    const wrapper = document.getElementById("wrapper");
+
+    const fullscreenButton = document.querySelector(".full-screen");
+    
+    fullscreenButton.addEventListener("click", function () {
+      if (document.fullscreenElement) {
+        document
+          .exitFullscreen()
+          .then(() => fullscreenButton.classList.remove("is-active"));
+      } else {
+        if (wrapper.webkitSupportsFullscreen) {
+          wrapper
+            .webkitEnterFullscreen()
+            .then(() => fullscreenButton.classList.add("is-active"));
+        } else {
+          wrapper
+            .requestFullscreen()
+            .then(() => fullscreenButton.classList.add("is-active"));
+        }
+      }
+    });
+
+
+    
+  </script>
+</body>
+</html>
